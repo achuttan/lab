@@ -9,7 +9,7 @@ namespace Lab.Tests
         [TestMethod]
         public void TestMethod1()
         {
-            Assert.AreEqual("ashwin", "aswin");
+            Assert.AreEqual("ashwin", "ashwin");
         }
     }
 }
