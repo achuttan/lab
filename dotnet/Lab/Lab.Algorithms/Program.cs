@@ -12,7 +12,7 @@ namespace Lab.Algorithms
         {
             List<int> array = new List<int> { 9, 8 ,7, 6, 5, 4, 3, 2, 1};
             Console.WriteLine("Input: " + PrintArray(array));
-            var sortedArray = Sorting.QuickSort1(array, 0, array.Count - 1);
+            var sortedArray = Sorting.QuickSort(array, 0, array.Count - 1);
             Newtonsoft.Json.Converters.BinaryConverter converter = new Newtonsoft.Json.Converters.BinaryConverter();
             Console.WriteLine("Output: " + PrintArray(sortedArray));
             Console.ReadKey();
