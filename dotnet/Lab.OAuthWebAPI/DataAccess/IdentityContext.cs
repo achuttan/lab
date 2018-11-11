@@ -13,7 +13,6 @@ namespace Lab.OAuthWeb.API.DataAccess
     {
         public IdentityContext() : base("DefaultConnection")
         {
-            Debug.Write(Database.Connection.ConnectionString);
         }
     }
 }

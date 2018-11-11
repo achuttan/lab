@@ -21,6 +21,11 @@ namespace Lab.OAuthWeb.API.Controllers
             _idRepository = new IdentityRepository();
         }
 
+        /// <summary>
+        /// Registers new user
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
         [AllowAnonymous]
         public async Task<IHttpActionResult> Register(UserModel user)
         {

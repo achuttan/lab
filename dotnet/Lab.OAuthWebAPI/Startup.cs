@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Web.Http;
+using Lab.OAuth.ServiceProviders;
 using Microsoft.Owin;
 using Owin;
 
@@ -22,7 +23,28 @@ namespace Lab.OAuth.API
 
             // wire up ASP.NET Web API to our Owin server pipeline.
             app.UseWebApi(config);
+            // set uo OAuth server
+            ConfigureOAuth(app);
+            // include support for cross-origin resource sharing
+            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+        }
 
+        /// <summary>
+        /// Sets up OAuthServer
+        /// </summary>
+        /// <param name="app"></param>
+        private void ConfigureOAuth(IAppBuilder app)
+        {
+
+            app.UseOAuthAuthorizationServer(new Microsoft.Owin.Security.OAuth.OAuthAuthorizationServerOptions
+            {
+                AllowInsecureHttp = true,
+                AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
+                TokenEndpointPath = new PathString("/token"),
+                Provider = new SecureAuthorizationServiceProvider()
+            });
+
+            app.UseOAuthBearerAuthentication(new Microsoft.Owin.Security.OAuth.OAuthBearerAuthenticationOptions());
         }
     }
 }

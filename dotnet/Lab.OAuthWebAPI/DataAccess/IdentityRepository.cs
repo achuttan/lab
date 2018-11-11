@@ -23,7 +23,6 @@ namespace Lab.OAuthWeb.API.DataAccess
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
@@ -41,7 +40,6 @@ namespace Lab.OAuthWeb.API.DataAccess
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             return result;
